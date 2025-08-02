@@ -16,8 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Roboto', sans-serif; background-color: #212121; scroll-behavior: smooth; }
-    .navbar { background-color: #264653; transition: background-color 0.3s ease; }
-    .navbar-scrolled { background-color: rgba(38, 70, 83, 0.95); }
+    .navbar { background-color: #ffffff; transition: background-color 0.3s ease; }
+    .navbar-scrolled { background-color: #f4ecdf; }
     .btn-primary { background-color: #F4A261; color: #264653; }
     .btn-primary:hover { background-color: #E76F51; }
     .headline { font-size: 3rem; font-weight: 800; }
@@ -27,30 +27,60 @@
 <body>
 
 <!-- Navbar -->
-<nav id="navbar" class="navbar fixed w-full z-50 py-4 shadow-md">
+<nav id="navbar" class="navbar fixed w-full z-50 py-4 shadow-md border-b-4 border-red-600">
+
   <div class="container mx-auto flex justify-between items-center px-6">
     <div class="flex items-center">
-      <img src="assets/logo.jpeg" alt="Greedy Burger" class="h-20">
-      <a href="#" class="text-2xl font-bold text-white ml-4">Greedy Burger</a>
+      <img src="assets/logo.jpeg" alt="Greedy Burger" class="h-20 w-20 rounded-full object-cover border-2 border-white shadow-md">
+
+      <a href="#" class="text-4xl font-bold text-[#1B5E20] ml-4" style="font-family: 'Poppins', sans-serif;">Greedy Burger</a>
+
     </div>
-    <ul class="flex space-x-6 text-white font-medium">
-      <li><a href="#home" class="hover:text-[#FDD835]">Home</a></li>
-      <li><a href="#about" class="hover:text-[#FDD835]">About</a></li>
-      <li><a href="#menu" class="hover:text-[#FDD835]">Menu</a></li>
-      <li><a href="#contact" class="hover:text-[#FDD835]">Contact</a></li>
-    </ul>
+    <ul class="flex space-x-6 font-semibold text-xl">
+  <li>
+    <a href="#home" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
+      Home
+    </a>
+  </li>
+  <li>
+    <a href="#about" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
+      About
+    </a>
+  </li>
+  <li>
+    <a href="#menu" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
+      Menu
+    </a>
+  </li>
+  <li>
+    <a href="#contact" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
+      Contact
+    </a>
+  </li>
+</ul>
+
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="bg-cover bg-center h-screen relative" style="background-image: url('https://images.unsplash.com/photo-1606149059550-a9867e336cb9?auto=format&fit=crop&w=1920&q=80'); background-blend-mode: overlay; background-color:  rgba(38, 70, 83, 0.95);">
-  <div class="flex flex-col items-center justify-center text-white h-full text-center px-4 pt-20">
-    <img src="assets/logo.jpeg" alt="Burger Icon" class="w-36 mb-4 animate-pulse">
+<section id="home" class="relative h-screen">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/about_banner.png');">
+  </div>
+
+  <!-- White Transparent Overlay -->
+  <div class="absolute inset-0 bg-white opacity-70"></div>
+
+  <!-- Content Layer -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-[#1B5E20] h-full text-center px-4 pt-20">
+    <img src="assets/logo.jpeg" alt="Burger Icon" class="w-36 mb-4 animate-pulse rounded-full border-4 border-white shadow-lg">
+
     <h1 class="headline mb-4">Killer Burgers Available Daily</h1>
-    <p class="text-lg max-w-2xl text-gray-100 mb-6">Heaven between the buns. Bite into bliss with our fresh, handcrafted burgers that speak flavor fluently.</p>
+    <p class="text-lg max-w-2xl text-gray-800 mb-6">Heaven between the buns. Bite into bliss with our fresh, handcrafted burgers that speak flavor fluently.</p>
     <a href="#menu" class="btn-primary px-8 py-4 rounded-full font-bold text-lg">Explore Menu</a>
   </div>
 </section>
+
 
 <!-- Image Showcase Section -->
 <section class="mt-12 px-4 overflow-x-auto">
