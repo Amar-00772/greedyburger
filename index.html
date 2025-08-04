@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greedy Burger</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <!-- ScrollTrigger Plugin -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -125,6 +129,144 @@
   </div>
 </section>
 
+<!-- Video Section -->
+<section class="bg-gray-100 py-0 px-0">
+  <video class="w-full h-auto" autoplay muted loop playsinline>
+    <source src="assets/burger.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+<!-- Features Section -->
+<section class="bg-white text-[#1B1B1B] py-20 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Left Text Content -->
+    <div class="space-y-12">
+      <!-- Feature 1 -->
+      <div class="flex items-start space-x-6 group">
+        <div class="text-4xl text-[#1B5E20]">
+          <i class="fas fa-address-book"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold tracking-wide text-[#1B5E20] group-hover:text-red-600 transition duration-300 ease-in-out hover:underline underline-offset-4">
+            AUTHENTIC TASTE
+          </h3>
+          <p class="text-gray-600 mt-2">
+            A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="flex items-start space-x-6 group">
+        <div class="text-4xl text-[#1B5E20]">
+          <i class="fas fa-concierge-bell"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold tracking-wide text-[#1B5E20] group-hover:text-red-600 transition duration-300 ease-in-out hover:underline underline-offset-4">
+            PREMIUM INGREDIENTS
+          </h3>
+          <p class="text-gray-600 mt-2">
+            A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="flex items-start space-x-6 group">
+        <div class="text-4xl text-[#1B5E20]">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold tracking-wide text-[#1B5E20] group-hover:text-red-600 transition duration-300 ease-in-out hover:underline underline-offset-4">
+            CREATIVE MENU
+          </h3>
+          <p class="text-gray-600 mt-2">
+            A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Images with Overlap -->
+    <div class="relative flex justify-center">
+      <!-- Skewers Image (Larger, with animation) -->
+      <div class="w-3/5 z-10" id="skewers-img">
+        <img src="assets/sample1.png" alt="Skewers" class="shadow-lg object-cover w-full h-auto">
+      </div>
+
+      <!-- Waffle Image (Smaller and Overlapping) -->
+      <div class="w-2/5 absolute top-20 right-0 transform translate-x-1/4 z-20">
+        <img src="assets/sample2.png" alt="Waffles and Coffee" class="shadow-xl object-cover w-full h-auto border-4 border-white">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Food Grid Section -->
+<section class="bg-[#0c3024] text-white py-20 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-duration="1000">
+    <!-- Sushi -->
+    <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+      <img src="assets/sandwitches.jpg" alt="Sushi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+        <h3 class="text-xl font-bold">SANDWICHES</h3>
+        <p class="text-sm mt-1">
+          A perfect blend of textures and flavors, each sandwich tells a delicious story—crafted to satisfy cravings and delight every bite.
+        </p>
+      </div>
+    </div>
+
+    <!-- Burger -->
+    <div class="bg-[#1B1B1B] p-6 flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-xl font-bold mb-2">BURGER</h3>
+      <p class="text-sm text-gray-300">
+        A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
+      </p>
+    </div>
+
+    <!-- Fried Rice -->
+    <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+      <img src="assets/desert.jpg" alt="Fried Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+        <h3 class="text-xl font-bold">RED VELVET DESSERT</h3>
+        <p class="text-sm mt-1">
+          A decadent treat layered with rich flavor and elegance—Red Velvet is more than dessert, it's a moment of indulgence in every bite.
+        </p>
+      </div>
+    </div>
+
+    <!-- Burger Image -->
+    <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+      <img src="assets/burgerg.jpg" alt="Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    </div>
+
+    <!-- Italian Pork -->
+    <div class="bg-[#1B1B1B] p-6 flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="500">
+      <h3 class="text-xl font-bold mb-2">Salt & Pepper Wings</h3>
+      <p class="text-sm text-gray-300">
+        Crispy, bold, and perfectly seasoned—Salt and Pepper Wings deliver a savory punch in every bite, where simplicity meets irresistible flavor.
+      </p>
+    </div>
+
+    <!-- Rice Dish -->
+    <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+      <img src="assets/chickenwings.jpg" alt="Rice Dish" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+    </div>
+  </div>
+</section>
+
+<!-- AOS Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
 
 <!-- Menu Section -->
 <section id="menu" class="py-20 bg-gray-100 px-6 text-center">
@@ -190,6 +332,21 @@
     duration: 1,
     stagger: 0.2,
     ease: "power2.out"
+  });
+  gsap.from("#skewers-img", {
+    scrollTrigger: {
+      trigger: "#skewers-img",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 60,
+    duration: 1.2,
+    ease: "power3.out"
+  });
+  AOS.init({
+    once: true, // animation only once
+    duration: 800, // animation duration
   });
 </script>
 
