@@ -442,22 +442,135 @@
     </div>
   </div>
 </section>
+<!-- Auto-Scrolling Images Section -->
+<section class="bg-[#FDD835] py-12">
+  <div class="flex justify-between items-center px-12">
+    <img src="assets/partner_logo1.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+    <img src="assets/partner_logo2.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+    <img src="assets/partner_logo3.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+    <img src="assets/partner_logo4.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+    <img src="assets/partner_logo5.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+    <img src="assets/partner_logo6.png" class="w-36 h-36 rounded-full object-contain bg-[#FDD835] p-2 shadow-lg">
+  </div>
+</section>
 
 
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    
+    <!-- Left Content -->
+    <div class="px-6">
+      <p class="text-orange-500 italic text-lg mb-2">Welcome</p>
+      <h2 class="text-black text-4xl md:text-5xl font-extrabold leading-tight mb-4">MAKE A<br>RESERVATION</h2>
+      <p class="text-gray-700 mb-8">
+        A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
+      </p>
+      
+      <form class="space-y-5">
+        <!-- Time & Date -->
+        <div class="grid grid-cols-2 gap-4">
+          <select class="border-b border-gray-400 bg-transparent py-2 focus:outline-none">
+            <option>Select time</option>
+            <option>10:00 AM</option>
+            <option>12:00 PM</option>
+            <option>2:00 PM</option>
+          </select>
+          <input type="date" class="border-b border-gray-400 bg-transparent py-2 focus:outline-none">
+        </div>
+        
+        <!-- Guests -->
+        <input type="number" placeholder="Total Guests" class="w-full border-b border-gray-400 bg-transparent py-2 focus:outline-none">
+        
+        <!-- Message -->
+        <textarea placeholder="Write Message" class="w-full border-b border-gray-400 bg-transparent py-2 focus:outline-none"></textarea>
+        
+        <!-- Button -->
+        <a href="#order" 
+          class="btn-primary px-8 py-4 rounded-full font-bold text-lg inline-block mt-6"
+          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+          Order Now
+        </a>
 
-<!-- Contact / CTA Section -->
-<section id="contact" class="py-20 text-center bg-[#1B5E20] text-white px-6">
-  <h2 class="text-4xl font-bold mb-4">Reserve Your Table</h2>
-  <p class="text-lg mb-6">We're flipping your favorites fresh daily. Reserve a table today and bite into burger heaven!</p>
-  <a href="#"
-     class="bg-[#FDD835] text-[#1B5E20] px-8 py-4 rounded-full font-bold hover:bg-[#FBC107] transition duration-300">
-    Book Now
-  </a>
+
+      </form>
+    </div>
+    
+    <!-- Right Image -->
+    <div class="h-full">
+      <img src="assets/make_reservation.png" alt="Restaurant" class="w-full h-full object-cover">
+    </div>
+    
+  </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-white text-center py-6">
-  <p>&copy; 2025 Greedy Burger. All rights reserved.</p>
+<footer class="bg-black text-white py-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+    
+    <!-- Subscribe Section -->
+    <div>
+      <h3 class="text-2xl font-extrabold mb-4 uppercase">Subscribe Now To For Updates And Exclusive Offers!</h3>
+      <form class="flex items-center border-b border-gray-500 pb-2 mb-4">
+        <input type="email" placeholder="Your email" class="bg-transparent text-white placeholder-gray-400 focus:outline-none flex-grow">
+        <button type="submit" class="text-orange-500 font-bold uppercase">Subscribe</button>
+      </form>
+      <div class="flex space-x-4">
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fas fa-times"></i></a>
+      </div>
+    </div>
+    
+    <!-- Links -->
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-orange-500">Home</a></li>
+        <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+        <li><a href="#" class="hover:text-orange-500">Services</a></li>
+        <li><a href="#" class="hover:text-orange-500">Shop</a></li>
+        <li><a href="#" class="hover:text-orange-500">Blogs</a></li>
+        <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <!-- Recent Posts -->
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Recent Posts</h3>
+      <div class="space-y-4">
+        <div class="flex space-x-4">
+          <img src="assets/footer1.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Discovering Deliciousness, One Recipe at a Time</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <img src="assets/footer2.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Indulge in Delicious Creations</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact -->
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Contact</h3>
+      <p>add your,<br>Address<br>address</p>
+      <p class="mt-2">Tel: +1 your number</p>
+      <p class="mt-1">info@greedyburger.com</p>
+    </div>
+    
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 mt-8 pt-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+    <p>© Greedy Burger. All Rights Reserved.</p>
+    <a href="#" class="hover:text-orange-500">Privacy Policy</a>
+  </div>
 </footer>
 
 <script>
@@ -497,6 +610,7 @@
     once: true, // animation only once
     duration: 800, // animation duration
   });
+  
 </script>
 
 </body>
