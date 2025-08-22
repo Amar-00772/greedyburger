@@ -4,88 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greedy Burger</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- Updated Tailwind CSS to latest CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
-
-
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<!-- ScrollTrigger Plugin -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-<!-- Register Plugin -->
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Roboto', sans-serif; background-color: #212121; scroll-behavior: smooth; }
-    .navbar { background-color: #ffffff; transition: background-color 0.3s ease; }
-    .navbar-scrolled { background-color: #f4ecdf; }
-    .btn-primary { background-color: #F4A261; color: #264653; }
-    .btn-primary:hover { background-color: #E76F51; }
-    .headline { font-size: 3rem; font-weight: 800; }
-    @media (min-width: 768px) { .headline { font-size: 4.5rem; } }
-</style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #212121;
+      scroll-behavior: smooth;
+    }
+    .navbar {
+      background-color: #ffffff;
+      transition: background-color 0.3s ease;
+      border-bottom: 1px solid #e5e7eb; /* Consistent border with Tailwind */
+    }
+    .navbar-scrolled {
+      background-color: #f4ecdf;
+    }
+    .btn-primary {
+      background-color: #F4A261;
+      color: #264653;
+    }
+    .btn-primary:hover {
+      background-color: #E76F51;
+    }
+    .headline {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    @media (min-width: 768px) {
+      .headline { font-size: 4.5rem; }
+    }
+     .scrolled {
+      background-color: #f97316; /* Orange */
+      transition: background-color 0.3s ease;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav id="navbar" class="navbar fixed w-full z-50 py-4 shadow-md border-b-4 border-red-600">
+ <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 transition-colors duration-300">
+      
+      <!-- Left Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
 
-  <div class="container mx-auto flex justify-between items-center px-6">
-    <div class="flex items-center">
-      <img src="assets/logo.jpeg" alt="Greedy Burger" class="h-20 w-20 rounded-full object-cover border-2 border-white shadow-md">
+        <a href="index.html" class="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1">Home</a>
+        <a href="aboutus.html" class="hover:text-orange-500 transition">About Us</a>
 
-      <a href="#" class="text-4xl font-bold text-[#1B5E20] ml-4" style="font-family: 'Poppins', sans-serif;">Greedy Burger</a>
+        <!-- Menus Dropdown -->
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" class="hover:text-orange-500 transition">
+            Menus
+          </button>
+          <div x-show="open" @click.away="open = false"
+              class="absolute mt-2 w-64 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="SANDWICHES.html" class="block px-4 py-2 hover:bg-orange-100">SANDWICHES</a>
+            <a href="SIGNATURE SMASH BURGER.HTML" class="block px-4 py-2 hover:bg-orange-100">SIGNATURE SMASH BURGER</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">WINGS TO FLY</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">TATER TOTS/POUTINE</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">SIDES/DESSERT/BANGER SHAKES</a>
+          </div>
+        </div>
+
+
+      </nav>
+
+       <!-- Logo (Bigger + Circle) -->
+      <div class="flex-shrink-0">
+        <img src="assets/logo.jpeg" 
+             alt="Logo" 
+             class="h-20 w-20 rounded-full object-cover border-4 border-orange-500 shadow-lg">
+      </div>
+
+      <!-- Right Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="#" class="hover:text-orange-500 transition">Shop</a>
+        <a href="#" class="hover:text-orange-500 transition">Blogs</a>
+        <a href="contactus.html" class="hover:text-orange-500 transition">Contact Us</a>
+      </nav>
 
     </div>
-    <ul class="flex space-x-6 font-semibold text-xl">
-  <li>
-    <a href="#home" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
-      Home
-    </a>
-  </li>
-  <li>
-    <a href="#about" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
-      About
-    </a>
-  </li>
-  <li>
-    <a href="#menu" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
-      Menu
-    </a>
-  </li>
-  <li>
-    <a href="#contact" class="text-[#1B5E20] hover:text-red-600 transition duration-300 ease-in-out">
-      Contact
-    </a>
-  </li>
-</ul>
-
-  </div>
-</nav>
+  </header>
 
 <!-- Hero Section -->
-<section id="home" class="relative h-screen">
-  <!-- Background Image -->
+<section id="home" class="relative h-screen mt-24"> <!-- Added margin to avoid navbar overlap -->
   <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('assets/about_banner.png');">
   </div>
-
-  <!-- White Transparent Overlay -->
   <div class="absolute inset-0 bg-white opacity-70"></div>
-
-  <!-- Content Layer -->
   <div class="relative z-10 flex flex-col items-center justify-center text-[#1B5E20] h-full text-center px-4 pt-20">
     <img src="assets/logo.jpeg" alt="Burger Icon" class="w-36 mb-4 animate-pulse rounded-full border-4 border-white shadow-lg">
-
     <h1 class="headline mb-4">Killer Burgers Available Daily</h1>
     <p class="text-lg max-w-2xl text-gray-800 mb-6">Heaven between the buns. Bite into bliss with our fresh, handcrafted burgers that speak flavor fluently.</p>
     <a href="#menu" class="btn-primary px-8 py-4 rounded-full font-bold text-lg">Explore Menu</a>
   </div>
 </section>
 
-
+<!-- Rest of your sections remain unchanged -->
 <!-- Image Showcase Section -->
 <section class="mt-12 px-4 overflow-x-auto">
   <div class="image-showcase flex justify-center items-end space-x-6 w-max mx-auto">
@@ -99,30 +122,23 @@
 
 <!-- Experience Section -->
 <section class="relative bg-white mt-16 px-4 lg:px-12 py-12">
-  <!-- Floating Ingredients -->
   <div class="absolute top-0 right-0 hidden lg:block z-10">
     <img src="assets/side_burger.png" alt="Floating Ingredients" class="w-40">
   </div>
-
   <div class="relative flex flex-col lg:flex-row items-center lg:items-start gap-8">
-    <!-- Left Image -->
     <div class="w-full lg:w-1/2 px-4 relative">
       <img src="assets/master_chef.png" alt="Chef Image" class="rounded-2xl shadow-xl w-full">
-
-      <!-- Floating Badge -->
       <div class="absolute -top-8 left-1/2 lg:top-4 lg:left-4 transform -translate-x-1/2 lg:translate-x-0">
         <img src="assets/chef_cap.png" alt="Master Chef Badge" class="w-24 h-24">
       </div>
     </div>
-
-    <!-- Right Content -->
     <div class="flex-1 text-center lg:text-left px-4 pt-8 lg:pt-4 relative z-20">
       <h4 class="text-yellow-500 font-bold mb-2">Who We Are</h4>
       <h2 class="text-3xl lg:text-5xl font-extrabold text-red-700 leading-tight">
         A MASTER CHEF <br class="hidden lg:block"> WITH 25 YEARS OF EXPERIENCE
       </h2>
       <p class="text-gray-700 mt-4 leading-relaxed max-w-xl">
-        Lorem Ipsum is simply dummy text of the printing and typeset ting industry lorem Ipsum has the industrys standard my text ever since the when an unknown printer.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has the industrys standard my text ever since the when an unknown printer.
       </p>
       <a href="#team" class="text-red-700 font-semibold inline-block mt-6 hover:underline">MEET OUR TEAM →</a>
     </div>
@@ -140,10 +156,7 @@
 <!-- Features Section -->
 <section class="bg-white text-[#1B1B1B] py-20 px-6 md:px-12">
   <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    
-    <!-- Left Text Content -->
     <div class="space-y-12">
-      <!-- Feature 1 -->
       <div class="flex items-start space-x-6 group">
         <div class="text-4xl text-[#1B5E20]">
           <i class="fas fa-address-book"></i>
@@ -157,8 +170,6 @@
           </p>
         </div>
       </div>
-
-      <!-- Feature 2 -->
       <div class="flex items-start space-x-6 group">
         <div class="text-4xl text-[#1B5E20]">
           <i class="fas fa-concierge-bell"></i>
@@ -172,8 +183,6 @@
           </p>
         </div>
       </div>
-
-      <!-- Feature 3 -->
       <div class="flex items-start space-x-6 group">
         <div class="text-4xl text-[#1B5E20]">
           <i class="fas fa-book-open"></i>
@@ -188,15 +197,10 @@
         </div>
       </div>
     </div>
-
-    <!-- Right Images with Overlap -->
     <div class="relative flex justify-center">
-      <!-- Skewers Image (Larger, with animation) -->
       <div class="w-3/5 z-10" id="skewers-img">
         <img src="assets/sample1.png" alt="Skewers" class="shadow-lg object-cover w-full h-auto">
       </div>
-
-      <!-- Waffle Image (Smaller and Overlapping) -->
       <div class="w-2/5 absolute top-20 right-0 transform translate-x-1/4 z-20">
         <img src="assets/sample2.png" alt="Waffles and Coffee" class="shadow-xl object-cover w-full h-auto border-4 border-white">
       </div>
@@ -207,7 +211,6 @@
 <!-- Food Grid Section -->
 <section class="bg-[#0c3024] text-white py-20 px-6 md:px-12">
   <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6" data-aos="fade-up" data-aos-duration="1000">
-    <!-- Sushi -->
     <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
       <img src="assets/sandwitches.jpg" alt="Sushi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
@@ -217,16 +220,12 @@
         </p>
       </div>
     </div>
-
-    <!-- Burger -->
     <div class="bg-[#1B1B1B] p-6 flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="200">
       <h3 class="text-xl font-bold mb-2">BURGER</h3>
       <p class="text-sm text-gray-300">
         A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
       </p>
     </div>
-
-    <!-- Fried Rice -->
     <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
       <img src="assets/desert.jpg" alt="Fried Rice" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
@@ -236,21 +235,15 @@
         </p>
       </div>
     </div>
-
-    <!-- Burger Image -->
     <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="400">
       <img src="assets/burgerg.jpg" alt="Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
     </div>
-
-    <!-- Italian Pork -->
     <div class="bg-[#1B1B1B] p-6 flex flex-col justify-center items-center text-center" data-aos="fade-up" data-aos-delay="500">
       <h3 class="text-xl font-bold mb-2">Salt & Pepper Wings</h3>
       <p class="text-sm text-gray-300">
         Crispy, bold, and perfectly seasoned—Salt and Pepper Wings deliver a savory punch in every bite, where simplicity meets irresistible flavor.
       </p>
     </div>
-
-    <!-- Rice Dish -->
     <div class="relative group overflow-hidden" data-aos="fade-up" data-aos-delay="600">
       <img src="assets/chickenwings.jpg" alt="Rice Dish" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
     </div>
@@ -264,25 +257,16 @@
   AOS.init();
 </script>
 
-
-
-
-
 <!-- Plates of Plenty Section -->
 <section class="bg-white py-20 px-6 md:px-12 text-gray-900">
   <h2 class="text-center text-4xl font-extrabold mb-4">
     <span class="text-yellow-600 text-2xl italic">Plates of Plenty</span><br>
     <span class="text-4xl font-black uppercase tracking-wide text-black">A Collection of Comfort Foods</span>
   </h2>
-
   <div class="grid md:grid-cols-3 gap-8 mt-12 items-stretch">
-    <!-- Left Column -->
     <div class="space-y-6 flex flex-col h-full">
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/hollycow.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">Holy Cow</h3>
@@ -292,14 +276,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
-
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/RANCHY & ROWDY WINGS.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">RANCHY & ROWDY WINGS</h3>
@@ -309,12 +287,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/GREEDY CHICKEN.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">GREEDY CHICKEN</h3>
@@ -324,12 +298,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/BACON ALL OVER.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">BACON ALL OVER</h3>
@@ -339,12 +309,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/MANGO HABANERO.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">MANGO HABANERO</h3>
@@ -355,51 +321,34 @@
         </div>
       </div>
     </div>
-
-     <!-- Chef Image (Center Column) -->
-      <div class="hidden md:flex justify-center items-center h-full">
-        <img src="assets/master_chef.png" alt="Chef" class="h-full w-auto object-cover rounded-t-full rounded-b-full border-4 border-yellow-600 shadow-xl">
-      </div>
-
-
-
-    <!-- Right Column -->
+    <div class="hidden md:flex justify-center items-center h-full">
+      <img src="assets/master_chef.png" alt="Chef" class="h-full w-auto object-cover rounded-t-full rounded-b-full border-4 border-yellow-600 shadow-xl">
+    </div>
     <div class="space-y-6 flex flex-col h-full">
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/MAGIC MANGO.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">MAGIC MANGO</h3>
             <span class="text-yellow-600 font-bold">$8.99</span>
           </div>
-          <p class="text-sm text-gray-600"> </p>
+          <p class="text-sm text-gray-600"></p>
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/cookies & cream.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">COOKIES & CREAM</h3>
             <span class="text-yellow-600 font-bold">$8.99</span>
           </div>
-          <p class="text-sm text-gray-600">  </p>
+          <p class="text-sm text-gray-600"></p>
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/HONEY GARLIC WINGS.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">HONEY GARLIC WINGS</h3>
@@ -409,12 +358,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/GUILTY VEGAN BURGER.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">GUILTY VEGAN BURGER</h3>
@@ -424,12 +369,8 @@
           <div class="text-yellow-500 mt-2 text-sm">★★★★★</div>
         </div>
       </div>
-
       <div class="bg-white shadow-lg rounded-lg p-4 border-2 border-dashed border-red-600 flex items-center space-x-6">
-        <!-- Food Image (Left, Circular & Larger) -->
         <img src="assets/BARBECUE BABE.jpg" alt="Ocean Bounty" class="w-24 h-24 rounded-full object-cover shadow-md">
-
-        <!-- Text Content (Right) -->
         <div class="flex-1">
           <div class="flex justify-between items-center mb-2">
             <h3 class="font-bold uppercase">BARBECUE BABE</h3>
@@ -442,6 +383,7 @@
     </div>
   </div>
 </section>
+
 <!-- Auto-Scrolling Images Section -->
 <section class="bg-[#FDD835] py-12">
   <div class="flex justify-between items-center px-12">
@@ -454,20 +396,15 @@
   </div>
 </section>
 
-
 <section class="bg-white py-16">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-    
-    <!-- Left Content -->
     <div class="px-6">
       <p class="text-orange-500 italic text-lg mb-2">Welcome</p>
       <h2 class="text-black text-4xl md:text-5xl font-extrabold leading-tight mb-4">MAKE A<br>RESERVATION</h2>
       <p class="text-gray-700 mb-8">
         A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
       </p>
-      
       <form class="space-y-5">
-        <!-- Time & Date -->
         <div class="grid grid-cols-2 gap-4">
           <select class="border-b border-gray-400 bg-transparent py-2 focus:outline-none">
             <option>Select time</option>
@@ -477,37 +414,20 @@
           </select>
           <input type="date" class="border-b border-gray-400 bg-transparent py-2 focus:outline-none">
         </div>
-        
-        <!-- Guests -->
         <input type="number" placeholder="Total Guests" class="w-full border-b border-gray-400 bg-transparent py-2 focus:outline-none">
-        
-        <!-- Message -->
         <textarea placeholder="Write Message" class="w-full border-b border-gray-400 bg-transparent py-2 focus:outline-none"></textarea>
-        
-        <!-- Button -->
-        <a href="#order" 
-          class="btn-primary px-8 py-4 rounded-full font-bold text-lg inline-block mt-6"
-          style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
-          Order Now
-        </a>
-
-
+        <a href="#order" class="btn-primary px-8 py-4 rounded-full font-bold text-lg inline-block mt-6">Order Now</a>
       </form>
     </div>
-    
-    <!-- Right Image -->
     <div class="h-full">
       <img src="assets/make_reservation.png" alt="Restaurant" class="w-full h-full object-cover">
     </div>
-    
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="bg-black text-white py-12">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
-    
-    <!-- Subscribe Section -->
     <div>
       <h3 class="text-2xl font-extrabold mb-4 uppercase">Subscribe Now To For Updates And Exclusive Offers!</h3>
       <form class="flex items-center border-b border-gray-500 pb-2 mb-4">
@@ -521,8 +441,6 @@
         <a href="#" class="text-white hover:text-orange-500"><i class="fas fa-times"></i></a>
       </div>
     </div>
-    
-    <!-- Links -->
     <div>
       <h3 class="text-xl font-bold mb-4 uppercase">Links</h3>
       <ul class="space-y-2">
@@ -534,8 +452,6 @@
         <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
       </ul>
     </div>
-    
-    <!-- Recent Posts -->
     <div>
       <h3 class="text-xl font-bold mb-4 uppercase">Recent Posts</h3>
       <div class="space-y-4">
@@ -555,18 +471,13 @@
         </div>
       </div>
     </div>
-    
-    <!-- Contact -->
     <div>
       <h3 class="text-xl font-bold mb-4 uppercase">Contact</h3>
       <p>add your,<br>Address<br>address</p>
       <p class="mt-2">Tel: +1 your number</p>
       <p class="mt-1">info@greedyburger.com</p>
     </div>
-    
   </div>
-
-  <!-- Bottom Bar -->
   <div class="border-t border-gray-700 mt-8 pt-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
     <p>© Greedy Burger. All Rights Reserved.</p>
     <a href="#" class="hover:text-orange-500">Privacy Policy</a>
@@ -582,12 +493,11 @@
   gsap.from('#navbar', { opacity: 0, y: -30, duration: 1 });
   gsap.from('.headline', { opacity: 0, y: 30, duration: 1, delay: 0.5 });
   gsap.from('.btn-primary', { opacity: 0, y: 20, duration: 1, delay: 1 });
-   // Animate the image showcase section
   gsap.from(".image-showcase img", {
     scrollTrigger: {
       trigger: ".image-showcase",
-      start: "top 80%",    // Trigger when top of .image-showcase hits 80% of viewport
-      toggleActions: "play none none none" // Play once
+      start: "top 80%",
+      toggleActions: "play none none none"
     },
     opacity: 0,
     y: 50,
@@ -607,10 +517,9 @@
     ease: "power3.out"
   });
   AOS.init({
-    once: true, // animation only once
-    duration: 800, // animation duration
+    once: true,
+    duration: 800,
   });
-  
 </script>
 
 </body>
