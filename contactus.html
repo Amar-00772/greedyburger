@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Greedy Burger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #212121;
+      scroll-behavior: smooth;
+    }
+    .navbar {
+      background-color: #ffffff;
+      transition: background-color 0.3s ease;
+      border-bottom: 1px solid #e5e7eb; /* Consistent border with Tailwind */
+    }
+    .navbar-scrolled {
+      background-color: #f4ecdf;
+    }
+    .btn-primary {
+      background-color: #F4A261;
+      color: #264653;
+    }
+    .btn-primary:hover {
+      background-color: #E76F51;
+    }
+    .headline {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    @media (min-width: 768px) {
+      .headline { font-size: 4.5rem; }
+    }
+     .scrolled {
+      background-color: #f97316; /* Orange */
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50" role="banner">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 transition-colors duration-300">
+      <!-- Left Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+        <a href="aboutus.html" class="hover:text-orange-500 transition">About Us</a>
+        <!-- Menus Dropdown -->
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" class="hover:text-orange-500 transition">
+            Menus
+          </button>
+          <div x-show="open" @click.away="open = false"
+               class="absolute mt-2 w-72 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="SANDWICHES.html" class="block px-4 py-2 hover:bg-orange-100">SANDWICHES</a>
+            <a href="SIGNATURE SMASH BURGER.HTML" class="block px-4 py-2 hover:bg-orange-100">SIGNATURE SMASH BURGER</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">WINGS TO FLY</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">TATER TOTS/POUTINE</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">SIDES/DESSERT/BANGER SHAKES</a>
+          </div>
+        </div>
+      </nav>
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img src="assets/logo.jpeg" 
+             alt="Greedy Burger Logo" 
+             class="h-20 w-20 rounded-full object-cover border-4 border-orange-500 shadow-lg">
+      </div>
+      <!-- Right Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="#" class="hover:text-orange-500 transition">Shop</a>
+        <a href="#" class="hover:text-orange-500 transition">Blogs</a>
+        <a href="contactus.html" class="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative">
+    <img src="assets/make_reservation.png" alt="Restaurant" class="w-full h-[450px] object-cover" />
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white uppercase tracking-widest">Contact Us</h1>
+    </div>
+  </section>
+
+  <section class="min-h-screen bg-white py-16 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Header -->
+    <div class="flex items-center justify-center mb-8">
+      <span class="text-orange-500 text-2xl font-semibold mr-2">Greedy Burger</span>
+     
+      <span class="text-orange-500 text-2xl font-semibold ml-2">—</span>
+      <img src="sample/graphic5.png" alt="Leaf Icon" class="w-12 h-12 ml-2">
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold text-orange-600 mb-4">Innovations in the Kitchen</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12">
+      The kitchen, once a space primarily for cooking and preparing meals, has evolved into a hub of innovation and creativity. Advancements in technology, changes in consumer preferences, and a growing focus on sustainability have all contributed to a wave of innovations transforming the way we cook, eat, and experience food. From smart appliances to novel cooking techniques, let's explore some of the most exciting innovations reshaping the culinary landscape.
+    </p>
+
+    <!-- Content Layout -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <!-- Image Section -->
+      <div class="w-full md:w-1/2">
+        <img src="sample/contact-1.png" alt="Group Dining" class="w-full h-auto object-cover rounded-lg shadow-md">
+      </div>
+
+      <!-- Text Columns -->
+      <div class="w-full md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left Column -->
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h2 class="text-xl font-semibold text-orange-600 mb-2">ADDRESS</h2>
+          <p class="text-gray-700">East 14th Street, New York,<br>Mercer Street,<br>NY 10003, United States</p>
+          <h2 class="text-xl font-semibold text-orange-600 mt-4 mb-2">DINING</h2>
+          <p class="text-gray-700">Indoor Dining & Heated<br>Outdoor Patios Private Rooms<br>& Terrace</p>
+        </div>
+        <!-- Right Column -->
+        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <h2 class="text-xl font-semibold text-orange-600 mb-2">RESERVATION</h2>
+          <p class="text-gray-700">72 Madison Avenue (Between<br>27th & 28th Street) New York,<br>NY 10016</p>
+          <h2 class="text-xl font-semibold text-orange-600 mt-4 mb-2">OPENING HOURS</h2>
+          <p class="text-gray-700">Monday - Friday 7 pm to 10<br>pm<br>Saturday - Sunday 7 pm to 12<br>pm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white py-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+    <div>
+      <h3 class="text-2xl font-extrabold mb-4 uppercase">Subscribe Now To For Updates And Exclusive Offers!</h3>
+      <form class="flex items-center border-b border-gray-500 pb-2 mb-4">
+        <input type="email" placeholder="Your email" class="bg-transparent text-white placeholder-gray-400 focus:outline-none flex-grow">
+        <button type="submit" class="text-orange-500 font-bold uppercase">Subscribe</button>
+      </form>
+      <div class="flex space-x-4">
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fas fa-times"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-orange-500">Home</a></li>
+        <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+        <li><a href="#" class="hover:text-orange-500">Services</a></li>
+        <li><a href="#" class="hover:text-orange-500">Shop</a></li>
+        <li><a href="#" class="hover:text-orange-500">Blogs</a></li>
+        <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Recent Posts</h3>
+      <div class="space-y-4">
+        <div class="flex space-x-4">
+          <img src="assets/footer1.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Discovering Deliciousness, One Recipe at a Time</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <img src="assets/footer2.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Indulge in Delicious Creations</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Contact</h3>
+      <p>add your,<br>Address<br>address</p>
+      <p class="mt-2">Tel: +1 your number</p>
+      <p class="mt-1">info@greedyburger.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+    <p>© Greedy Burger. All Rights Reserved.</p>
+    <a href="#" class="hover:text-orange-500">Privacy Policy</a>
+  </div>
+</footer>
+</body>
+</html>

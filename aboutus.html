@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Spice Odyssey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #212121;
+      scroll-behavior: smooth;
+    }
+    .navbar {
+      background-color: #ffffff;
+      transition: background-color 0.3s ease;
+      border-bottom: 1px solid #e5e7eb; /* Consistent border with Tailwind */
+    }
+    .navbar-scrolled {
+      background-color: #f4ecdf;
+    }
+    .btn-primary {
+      background-color: #F4A261;
+      color: #264653;
+    }
+    .btn-primary:hover {
+      background-color: #E76F51;
+    }
+    .headline {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    @media (min-width: 768px) {
+      .headline { font-size: 4.5rem; }
+    }
+     .scrolled {
+      background-color: #f97316; /* Orange */
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50" role="banner">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 transition-colors duration-300">
+      <!-- Left Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+        <a href="aboutus.html" class="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1">About Us</a>
+        <!-- Menus Dropdown -->
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" class="hover:text-orange-500 transition">
+            Menus
+          </button>
+          <div x-show="open" @click.away="open = false"
+               class="absolute mt-2 w-72 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="SANDWICHES.html" class="block px-4 py-2 hover:bg-orange-100">SANDWICHES</a>
+            <a href="SIGNATURE SMASH BURGER.HTML" class="block px-4 py-2 hover:bg-orange-100">SIGNATURE SMASH BURGER</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">WINGS TO FLY</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">TATER TOTS/POUTINE</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">SIDES/DESSERT/BANGER SHAKES</a>
+          </div>
+        </div>
+      </nav>
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img src="assets/logo.jpeg" 
+             alt="Greedy Burger Logo" 
+             class="h-20 w-20 rounded-full object-cover border-4 border-orange-500 shadow-lg">
+      </div>
+      <!-- Right Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="#" class="hover:text-orange-500 transition">Shop</a>
+        <a href="#" class="hover:text-orange-500 transition">Blogs</a>
+        <a href="contactus.html" class="hover:text-orange-500 transition">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative">
+    <img src="assets/make_reservation.png" alt="Restaurant" class="w-full h-[450px] object-cover" />
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white uppercase tracking-widest">About Us</h1>
+    </div>
+  </section>
+
+    <section class="py-16 px-6 md:px-20 text-center relative">
+        <h2 class="text-2xl text-amber-600 italic mb-2">Greedy Burger</h2>
+        <h3 class="text-4xl md:text-5xl font-extrabold mb-6">A Culinary Journey</h3>
+        <p class="max-w-3xl mx-auto text-gray-600">
+            A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
+            From the heritage of ingredients to the passion of chefs, every element unfolds a tale, creating an immersive dining
+            experience that delights both palate and imagination.
+        </p>
+
+        <!-- Dish Images -->
+        <div class="flex justify-center items-center mt-12 gap-4 w-[80%] mx-auto">
+            <!-- Left Image (smaller, offset downward) -->
+            <img src="sample/culinary_img2.png" alt="Dish" class="w-40 h-40 md:w-56 md:h-56 rounded-lg shadow-lg transform translate-y-16 animate-pulse" />
+            
+            <!-- Center Image (larger) -->
+            <img src="sample/culinary_img1.png" alt="Dish" class="w-96 h-96 md:w-[30rem] md:h-[30rem] rounded-lg shadow-lg z-10" />
+            
+            <!-- Right Image (smaller, offset upward) -->
+            <img src="sample/culinary_img3.png" alt="Dish" class="w-40 h-40 md:w-56 md:h-56 rounded-lg shadow-lg transform -translate-y-16 animate-float" />
+        </div>
+    </section>
+
+    <style>
+        /* Floating animation for right image */
+        @keyframes float {
+            0%, 100% { transform: translateY(-4rem) translateY(-10px); }
+            50% { transform: translateY(-4rem) translateY(10px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Pulse animation for left image */
+        @keyframes pulse {
+            0%, 100% { transform: translateY(4rem) scale(1); }
+            50% { transform: translateY(4rem) scale(1.05); }
+        }
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+
+  <!-- Global Cuisine -->
+  <section class="bg-gray-100 py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2">
+      <img src="sample/global_img.png" alt="Cuisine" class="rounded-lg shadow-lg" />
+    </div>
+    <div class="md:w-1/2 text-left">
+      <h2 class="text-2xl text-amber-600 italic mb-2">The Joy of Eating</h2>
+      <h3 class="text-4xl md:text-5xl font-extrabold mb-6">Global Cuisine at Your Fingertips</h3>
+      <p class="text-gray-600">
+        A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
+        From the heritage of ingredients to the passion of chefs, every element unfolds a tale, creating an immersive dining
+        experience that delights both palate and imagination.
+      </p>
+    </div>
+  </section>
+
+  <!-- Exploring the World -->
+  <section class="bg-gray-900 text-white py-16 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2">
+      <img src="sample/exploring_img1.png" alt="Pizza" class="rounded-lg shadow-lg" />
+    </div>
+    <div class="md:w-1/2">
+      <h2 class="text-2xl text-amber-500 italic mb-2">Flavors of the World</h2>
+      <h3 class="text-4xl md:text-5xl font-extrabold mb-6">Exploring the World</h3>
+      <p class="text-gray-300 mb-6">
+        A culinary journey that transcends taste, inviting patrons to savor not just flavors, but narratives woven into each dish.
+        From the heritage of ingredients to the passion.
+      </p>
+
+      <!-- Progress Bars -->
+      <div class="space-y-4">
+        <div>
+          <p class="flex justify-between">United States <span>92%</span></p>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-amber-500 h-2 rounded-full w-[92%]"></div>
+          </div>
+        </div>
+        <div>
+          <p class="flex justify-between">Germany <span>84%</span></p>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-amber-500 h-2 rounded-full w-[84%]"></div>
+          </div>
+        </div>
+        <div>
+          <p class="flex justify-between">India <span>48%</span></p>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-amber-500 h-2 rounded-full w-[48%]"></div>
+          </div>
+        </div>
+        <div>
+          <p class="flex justify-between">Australia <span>38%</span></p>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-amber-500 h-2 rounded-full w-[38%]"></div>
+          </div>
+        </div>
+        <div>
+          <p class="flex justify-between">South Africa <span>88%</span></p>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div class="bg-amber-500 h-2 rounded-full w-[88%]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="py-16 px-0 w-full">
+  <div class="grid grid-cols-2 gap-0">
+    <img src="sample/gallery_img1.png" alt="Nachos" class="w-full h-full max-w-[50vw] max-h-[50vh] object-cover" />
+    <img src="sample/gallery_img2.png" alt="Black Sesame Burger" class="w-full h-full max-w-[50vw] max-h-[50vh] object-cover" />
+    <img src="sample/gallery_img3.png" alt="Grain Bowl" class="w-full h-full max-w-[50vw] max-h-[50vh] object-cover" />
+    <img src="sample/gallery_img4.png" alt="Pulled Pork Sandwich" class="w-full h-full max-w-[50vw] max-h-[50vh] object-cover" />
+  </div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white py-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+    <div>
+      <h3 class="text-2xl font-extrabold mb-4 uppercase">Subscribe Now To For Updates And Exclusive Offers!</h3>
+      <form class="flex items-center border-b border-gray-500 pb-2 mb-4">
+        <input type="email" placeholder="Your email" class="bg-transparent text-white placeholder-gray-400 focus:outline-none flex-grow">
+        <button type="submit" class="text-orange-500 font-bold uppercase">Subscribe</button>
+      </form>
+      <div class="flex space-x-4">
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white hover:text-orange-500"><i class="fas fa-times"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-orange-500">Home</a></li>
+        <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+        <li><a href="#" class="hover:text-orange-500">Services</a></li>
+        <li><a href="#" class="hover:text-orange-500">Shop</a></li>
+        <li><a href="#" class="hover:text-orange-500">Blogs</a></li>
+        <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Recent Posts</h3>
+      <div class="space-y-4">
+        <div class="flex space-x-4">
+          <img src="assets/footer1.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Discovering Deliciousness, One Recipe at a Time</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <img src="assets/footer2.png" alt="Post" class="w-16 h-16 object-cover">
+          <div>
+            <a href="#" class="font-bold hover:text-orange-500">Indulge in Delicious Creations</a>
+            <p class="text-sm text-gray-400">April 5, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-bold mb-4 uppercase">Contact</h3>
+      <p>add your,<br>Address<br>address</p>
+      <p class="mt-2">Tel: +1 your number</p>
+      <p class="mt-1">info@greedyburger.com</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 mt-8 pt-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+    <p>© Greedy Burger. All Rights Reserved.</p>
+    <a href="#" class="hover:text-orange-500">Privacy Policy</a>
+  </div>
+</footer>
+</body>
+</html>

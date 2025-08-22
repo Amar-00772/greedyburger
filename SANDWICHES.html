@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greedy Burger Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    .scrolled {
+      background-color: #f97316; /* Orange */
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans pt-24">
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 left-0 w-full bg-white shadow-sm z-50" role="banner">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 transition-colors duration-300">
+      <!-- Left Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+        <a href="#" class="hover:text-orange-500 transition">Pages</a>
+        <!-- Menus Dropdown -->
+        <div x-data="{ open: false }" class="relative">
+          <button @click="open = !open" class="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1">
+            Menus
+          </button>
+          <div x-show="open" @click.away="open = false"
+               class="absolute mt-2 w-72 bg-white shadow-lg rounded-md py-2 z-50">
+            <a href="SANDWICHES.html" class="block px-4 py-2 hover:bg-orange-100">SANDWICHES</a>
+            <a href="SIGNATURE SMASH BURGER.HTML" class="block px-4 py-2 hover:bg-orange-100">SIGNATURE SMASH BURGER</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">WINGS TO FLY</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">TATER TOTS/POUTINE</a>
+            <a href="#" class="block px-4 py-2 hover:bg-orange-100">SIDES/DESSERT/BANGER SHAKES</a>
+          </div>
+        </div>
+      </nav>
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img src="assets/logo.jpeg" 
+             alt="Greedy Burger Logo" 
+             class="h-20 w-20 rounded-full object-cover border-4 border-orange-500 shadow-lg">
+      </div>
+      <!-- Right Menu -->
+      <nav class="flex items-center space-x-8 text-lg font-medium">
+        <a href="#" class="hover:text-orange-500 transition">Shop</a>
+        <a href="#" class="hover:text-orange-500 transition">Blogs</a>
+        <a href="contactus.html" class="hover:text-orange-500 transition">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative">
+    <img src="assets/about_banner.png" alt="Burger Banner" class="w-full h-80 object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      <h1 class="text-white text-4xl font-bold uppercase drop-shadow-md">SANDWICHES</h1>
+    </div>
+  </section>
+
+  <!-- Menu Title -->
+  <section class="text-center py-12">
+    <div class="flex justify-center items-center space-x-4">
+      <div class="w-16 border-t-2 border-orange-400"></div>
+      <p class="text-orange-400 italic text-4xl font-bold" style="font-family: 'Corinthia', cursive;">
+        Greedy Burger
+      </p>
+      <div class="w-16 border-t-2 border-orange-400"></div>
+    </div>
+    <h2 class="text-4xl font-extrabold mt-2" style="font-family: 'Cormorant', serif;">
+      OUR SANDWICHES MENU
+    </h2>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+    <!-- Left Column -->
+    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col justify-between space-y-4"> <!-- Changed space-y-8 to space-y-4 -->
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 pb-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to pb-2 -->
+        <img src="SANDWICHES/chicken-sandwich.jpg" alt="Greedy Fried Chicken Sandwich" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">GREEDY FRIED CHICKEN SANDWICH <span class="text-orange-500">$8.99</span></h3>
+          <p class="text-gray-500 text-sm">Buttermilk Crispy Chicken, Coleslaw, Homemade Pickle</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 py-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to py-2 -->
+        <img src="SANDWICHES/KOREAN FRIEDCHICKEN SANDWICH.jpg" alt="Korean Fried Chicken Sandwich" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">KOREAN FRIED CHICKEN SANDWICH <span class="text-orange-500">$9.99</span></h3>
+          <p class="text-gray-500 text-sm">Crispy Fried Chicken, Korean Butter Jus, Coleslaw</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 py-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to py-2, added border -->
+        <img src="SANDWICHES/OG NASHVILLE HOT CHICKEN.jpg" alt="OG Nashville Hot Chicken" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">OG NASHVILLE HOT CHICKEN <span class="text-orange-500">$9.99</span></h3>
+          <p class="text-gray-500 text-sm">Spicy Crispy Chicken, Coleslaw, Homemade Pickle, Garlic Chili Oil</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+    </div>
+    <!-- Center Image -->
+    <div class="flex justify-center h-full">
+      <img src="sample/menu_pizza_img.png" 
+           alt="Menu Center Image" 
+           class="h-full w-auto object-cover rounded-t-full rounded-b-full shadow-lg border-4 border-white">
+    </div>
+    <!-- Right Column -->
+    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col justify-between space-y-4"> <!-- Changed space-y-8 to space-y-4 -->
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 pb-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to pb-2 -->
+        <img src="SANDWICHES/CHICKEN TENDERS.jpg" alt="Chicken Tenders" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">CHICKEN TENDERS <span class="text-orange-500">$6.99</span></h3>
+          <p class="text-gray-500 text-sm">Crispy Chicken Tenders, Served with Choice of Dipping Sauce</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 py-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to py-2 -->
+        <img src="SANDWICHES/GUILTY VEGAN BURGERBlack Beans, Potato, Corn, Tomato Salsa.jpg" alt="Guilty Vegan Burger" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">GUILTY VEGAN BURGER <span class="text-orange-500">$11.99</span></h3>
+          <p class="text-gray-500 text-sm">Black Beans, Potato, Corn, Tomato Salsa</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+      <!-- Menu Item -->
+      <div class="flex items-start gap-4 py-2 border-b-2 border-dashed border-gray-300"> <!-- Changed py-4 to py-2, added border -->
+        <img src="SANDWICHES/MADNESS LOBSTER BURGER.jpg" alt="Madness Lobster Burger" class="w-16 h-16 object-cover rounded-full">
+        <div class="flex-1">
+          <h3 class="font-bold">MADNESS LOBSTER BURGER <span class="text-orange-500">$13.99</span></h3>
+          <p class="text-gray-500 text-sm">Lobster Meat, Shrimp, Tartar Sauce, Pickled Cucumber</p>
+          <p class="text-yellow-500">★★★★★</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food Gallery -->
+  <section class="bg-black py-8 mt-12">
+    <div class="max-w-7xl mx-auto flex gap-4 overflow-x-auto px-6">
+      <img src="SANDWICHES/CHICKEN TENDERS.jpg" alt="Chicken Tenders" class="w-60 h-60 object-cover rounded-lg">
+      <img src="SANDWICHES/chicken-sandwich.jpg" alt="Greedy Fried Chicken Sandwich" class="w-60 h-60 object-cover rounded-lg">
+      <img src="SANDWICHES/GUILTY VEGAN BURGERBlack Beans, Potato, Corn, Tomato Salsa.jpg" alt="Guilty Vegan Burger" class="w-60 h-60 object-cover rounded-lg">
+      <img src="SANDWICHES/KOREAN FRIEDCHICKEN SANDWICH.jpg" alt="Korean Fried Chicken Sandwich" class="w-60 h-60 object-cover rounded-lg">
+      <img src="SANDWICHES/MADNESS LOBSTER BURGER.jpg" alt="Madness Lobster Burger" class="w-60 h-60 object-cover rounded-lg">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+      <div>
+        <h3 class="text-2xl font-extrabold mb-4 uppercase">Subscribe for Updates & Offers!</h3>
+        <form class="flex items-center border-b border-gray-500 pb-2 mb-4" action="#">
+          <input type="email" placeholder="Your email" class="bg-transparent text-white placeholder-gray-400 focus:outline-none flex-grow">
+          <button type="submit" class="text-orange-500 font-bold uppercase">Subscribe</button>
+        </form>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="text-white hover:text-orange-500"><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4 uppercase">Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-orange-500">Home</a></li>
+          <li><a href="#" class="hover:text-orange-500">About Us</a></li>
+          <li><a href="#" class="hover:text-orange-500">Services</a></li>
+          <li><a href="#" class="hover:text-orange-500">Shop</a></li>
+          <li><a href="#" class="hover:text-orange-500">Blogs</a></li>
+          <li><a href="#" class="hover:text-orange-500">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4 uppercase">Recent Posts</h3>
+        <div class="space-y-4">
+          <div class="flex space-x-4">
+            <img src="assets/footer1.png" alt="Post 1" class="w-16 h-16 object-cover">
+            <div>
+              <a href="#" class="font-bold hover:text-orange-500">Discovering Deliciousness, One Recipe at a Time</a>
+              <p class="text-sm text-gray-400">April 5, 2024</p>
+            </div>
+          </div>
+          <div class="flex space-x-4">
+            <img src="assets/footer2.png" alt="Post 2" class="w-16 h-16 object-cover">
+            <div>
+              <a href="#" class="font-bold hover:text-orange-500">Indulge in Delicious Creations</a>
+              <p class="text-sm text-gray-400">April 5, 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4 uppercase">Contact</h3>
+        <p>123 Burger Lane,<br>Food City, FC 12345</p>
+        <p class="mt-2">Tel: +1 555-123-4567</p>
+        <p class="mt-1">info@greedyburger.com</p>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 pt-4 px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+      <p>© Greedy Burger. All Rights Reserved.</p>
+      <a href="#" class="hover:text-orange-500">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <!-- Scroll Effect Script -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
